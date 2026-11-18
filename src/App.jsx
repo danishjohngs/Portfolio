@@ -1,53 +1,201 @@
 
 import { useEffect, useState } from "react";
 import {
-  ArrowDown, ArrowRight, ArrowUpRight, Award, Github, Linkedin,
-  Mail, MapPin, Menu, Moon, Sun, Terminal, X, GraduationCap,
-  ShieldCheck, Cloud, Code2, Command, Braces, Network
+  ArrowDown,
+  ArrowRight,
+  ArrowUpRight,
+  Award,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Menu,
+  X,
+  GraduationCap,
+  ShieldCheck,
+  Cloud,
+  Code2,
+  Terminal,
+  Workflow,
+  Server,
+  Database,
+  LockKeyhole,
+  Network,
+  ExternalLink,
+  Phone,
+  Sun,
+  Moon,
 } from "lucide-react";
-import "./App.css";
 
 const profile = {
   name: "Danish John G S",
   shortName: "Danish John",
   role: "Aspiring Cloud Security Engineer",
   email: "danish.sec.dev@gmail.com",
+  phone: "917907401614",
+  location: "Trivandrum, India",
+  photo: "/profile.jpg",
+  resume: "/Danish-John-Resume.pdf",
   github: "https://github.com/danishjohngs",
   linkedin: "https://www.linkedin.com/in/danishjohngs",
 };
 
-const journey = [
+const navItems = [
+  "About",
+  "Expertise",
+  "Technology",
+  "Journey",
+  "Projects",
+  "Contact",
+];
+
+const expertise = [
   {
-    number: "01",
-    label: "FOUNDATIONS",
-    title: "Cybersecurity foundations",
-    description: "Developed an interest in cybersecurity, ethical hacking, security tools, and understanding how systems can be protected.",
+    name: "Linux Administration",
+    description: "Linux fundamentals, terminal operations and system troubleshooting.",
+    level: "Building foundations",
+    value: 65,
   },
   {
-    number: "02",
-    label: "CREDENTIAL",
-    title: "Certified Ethical Hacker",
-    description: "Earned the CEH v13 certification from EC-Council.",
+    name: "Networking",
+    description: "TCP/IP, DNS, ports, protocols and network fundamentals.",
+    level: "Learning",
+    value: 55,
   },
   {
-    number: "03",
-    label: "HANDS-ON PRACTICE",
-    title: "Linux & System Administration",
-    description: "Started building practical Linux skills through terminal exercises, administration labs, troubleshooting, and Bash scripting.",
+    name: "Cybersecurity",
+    description: "Ethical hacking, reconnaissance and security fundamentals.",
+    level: "Practising",
+    value: 65,
   },
   {
-    number: "04",
-    label: "CURRENT DIRECTION",
-    title: "Cloud & DevOps Engineering",
-    description: "Currently developing Linux, Bash, and networking foundations as preparation for cloud engineering and DevSecOps.",
+    name: "Python & Automation",
+    description: "Python scripting, problem-solving and automation projects.",
+    level: "Practising",
+    value: 55,
+  },
+  {
+    name: "Cloud Computing",
+    description: "AWS services, cloud infrastructure and deployment concepts.",
+    level: "Learning",
+    value: 35,
+  },
+  {
+    name: "DevSecOps",
+    description: "Infrastructure automation and security in development workflows.",
+    level: "Exploring",
+    value: 25,
   },
 ];
 
-const skills = [
-  { name: "Linux", description: "System administration and terminal fundamentals.", status: "Learning", icon: Command },
-  { name: "Bash", description: "Shell scripting and task automation.", status: "Practising", icon: Braces },
-  { name: "Networking", description: "Networking fundamentals and troubleshooting.", status: "Learning", icon: Network },
-  { name: "Git & GitHub", description: "Version control and project documentation.", status: "Practising", icon: Github },
+const technologies = [
+  {
+    name: "Linux",
+    category: "Operating System",
+    icon: "linux",
+    color: "FCC624",
+  },
+  {
+    name: "Ubuntu",
+    category: "Operating System",
+    icon: "ubuntu",
+    color: "E95420",
+  },
+  {
+    name: "AWS",
+    category: "Cloud Platform",
+    icon: "amazonwebservices",
+    color: "FF9900",
+  },
+  {
+    name: "Python",
+    category: "Programming",
+    icon: "python",
+    color: "3776AB",
+  },
+  {
+    name: "Bash",
+    category: "Scripting",
+    icon: "gnubash",
+    color: "4EAA25",
+  },
+  {
+    name: "Git",
+    category: "Version Control",
+    icon: "git",
+    color: "F05032",
+  },
+  {
+    name: "GitHub",
+    category: "Development",
+    icon: "github",
+    color: "FFFFFF",
+  },
+  {
+    name: "Docker",
+    category: "Containers",
+    icon: "docker",
+    color: "2496ED",
+  },
+  {
+    name: "Kubernetes",
+    category: "Orchestration",
+    icon: "kubernetes",
+    color: "326CE5",
+  },
+  {
+    name: "Terraform",
+    category: "Infrastructure as Code",
+    icon: "terraform",
+    color: "844FBA",
+  },
+  {
+    name: "Nmap",
+    category: "Security",
+    icon: "nmap",
+    color: "4EAA25",
+  },
+  {
+    name: "Wireshark",
+    category: "Network Analysis",
+    icon: "wireshark",
+    color: "1679A7",
+  },
+];
+
+const journey = [
+  {
+    date: "2023 — PRESENT",
+    title: "Bachelor of Computer Applications",
+    organization: "St. Benedict Academy, Bengaluru",
+    description:
+      "Studying computer applications, programming fundamentals, databases and software development while building practical technical skills.",
+    tags: ["BCA", "Programming", "Computer Science"],
+  },
+  {
+    date: "2024 — PRESENT",
+    title: "Cybersecurity & Technical Practice",
+    organization: "Independent learning and practical labs",
+    description:
+      "Practising reconnaissance, enumeration, vulnerability identification, Linux security tools and controlled ethical hacking labs.",
+    tags: ["Cybersecurity", "Linux", "Nmap", "OWASP"],
+  },
+  {
+    date: "2025",
+    title: "Certified Ethical Hacker",
+    organization: "EC-Council — CEH v13",
+    description:
+      "Completed Certified Ethical Hacker training and developed practical understanding of ethical hacking methodologies.",
+    tags: ["CEH v13", "Ethical Hacking", "Security"],
+  },
+  {
+    date: "2026 — PRESENT",
+    title: "Cloud Security & DevSecOps",
+    organization: "Current learning direction",
+    description:
+      "Developing strong foundations in Linux, networking, Bash and Python while progressing toward AWS cloud engineering and DevSecOps.",
+    tags: ["AWS", "Linux", "DevOps", "Automation"],
+  },
 ];
 
 const projects = [
@@ -55,143 +203,486 @@ const projects = [
     number: "01",
     name: "Linux Server Administration Lab",
     category: "LINUX / SYSTEM ADMINISTRATION",
-    status: "Introductory lab completed",
-    description: "An introductory Ubuntu and WSL2 administration lab covering users, groups, permissions, POSIX ACLs, and documented troubleshooting.",
+    status: "Lab project",
+    description:
+      "An Ubuntu and WSL2 administration lab covering users, groups, permissions, POSIX ACLs and documented troubleshooting scenarios.",
     tech: ["Linux", "Ubuntu", "POSIX ACLs", "WSL2"],
     url: "https://github.com/danishjohngs/linux-server-administration-lab",
+    icon: "linux",
+    color: "FCC624",
   },
   {
     number: "02",
-    name: "Curavita",
-    category: "PERSONAL PROJECT",
-    status: "In progress",
-    description: "Project details are not currently verifiable because the supplied public repository is unavailable.",
-    tech: ["Personal project"],
-    url: null,
-  },
-  {
-    number: "03",
     name: "DevOps Journey",
     category: "LEARNING / DOCUMENTATION",
     status: "Ongoing",
-    description: "A public learning journal documenting Linux, scripting, networking, and DevOps foundations.",
+    description:
+      "A public learning journal documenting practical progress in Linux, Bash, networking, Git and DevOps engineering foundations.",
     tech: ["Linux", "Bash", "Git", "Networking"],
     url: "https://github.com/danishjohngs/DevOps-Journey",
+    icon: "github",
+    color: "FFFFFF",
+  },
+  {
+    number: "03",
+    name: "Curavita",
+    category: "PERSONAL PROJECT",
+    status: "Details to be updated",
+    description:
+      "A personal project. More verified project details and implementation information will be added.",
+    tech: ["Personal project"],
+    url: null,
+    icon: "code",
+    color: "20C9F3",
   },
 ];
 
-const navItems = ["About", "Journey", "Skills", "Projects", "Contact"];
+const architecture = [
+  { name: "Users", detail: "Access", icon: Network },
+  { name: "Network", detail: "VPC / Subnets", icon: Cloud },
+  { name: "Compute", detail: "EC2 / Servers", icon: Server },
+  { name: "Security", detail: "IAM / Policies", icon: LockKeyhole },
+  { name: "Storage", detail: "S3 / Data", icon: Database },
+  { name: "Monitoring", detail: "Logs / Alerts", icon: Workflow },
+];
 
-function DJMark() {
-  return <span className="dj-mark">DJ<span>.</span></span>;
+const workflow = [
+  { name: "Plan", icon: Code2 },
+  { name: "Code", icon: Terminal },
+  { name: "Build", icon: Server },
+  { name: "Test", icon: ShieldCheck },
+  { name: "Secure", icon: LockKeyhole },
+  { name: "Deploy", icon: Cloud },
+];
+
+function TechLogo({ icon, color = "FFFFFF", name }) {
+  const slug = icon === "code" ? null : icon;
+
+  if (!slug) {
+    return (
+      <div className="tech-logo-fallback">
+        <Code2 size={27} />
+      </div>
+    );
+  }
+
+  return (
+    <img
+      className="tech-logo-image"
+      src={`https://cdn.simpleicons.org/${slug}/${color}`}
+      alt={`${name} logo`}
+      loading="lazy"
+      onError={(event) => {
+        event.currentTarget.style.display = "none";
+      }}
+    />
+  );
 }
 
-function Header({ theme, setTheme }) {
+function Eyebrow({ children }) {
+  return <div className="eyebrow">{children}</div>;
+}
+
+function SectionTitle({ number, label, title, description }) {
+  return (
+    <div className="section-heading">
+      <Eyebrow>{number} / {label}</Eyebrow>
+      <h2>{title}</h2>
+      {description && <p>{description}</p>}
+    </div>
+  );
+}
+
+function Header({ theme, onToggleTheme }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="site-header">
-      <a href="#home" className="brand"><DJMark /><span>DANISH JOHN</span></a>
-      <nav className={menuOpen ? "nav-links nav-open" : "nav-links"}>
-        {navItems.map((item) => (
-          <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)}>
-            {item}
-          </a>
-        ))}
-      </nav>
-      <div className="header-actions">
-        <button className="theme-button" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} aria-label="Toggle theme">
-          {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+      <div className="header-inner">
+        <a href="#home" className="brand">
+          <span className="brand-mark">
+            DJ<span>.</span>
+          </span>
+          <span>MY PORTFOLIO.</span>
+        </a>
+
+        <nav
+          className={menuOpen ? "nav-links nav-open" : "nav-links"}
+          id="main-navigation"
+        >
+          {navItems.map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              onClick={() => setMenuOpen(false)}
+            >
+              {item}
+            </a>
+          ))}
+        </nav>
+
+        <button
+          className="theme-toggle"
+          onClick={onToggleTheme}
+          aria-label={
+            theme === "dark"
+              ? "Switch to light mode"
+              : "Switch to dark mode"
+          }
+          aria-pressed={theme === "light"}
+          type="button"
+        >
+          {theme === "dark" ? <Sun size={19} /> : <Moon size={19} />}
         </button>
-        <a className="header-cta" href="#contact">Let's talk <ArrowUpRight size={13} /></a>
-        <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
-          {menuOpen ? <X size={19} /> : <Menu size={19} />}
+
+        <a className="header-cta" href="#contact">
+          LET'S CONNECT <ArrowUpRight size={15} />
+        </a>
+
+        <button
+          className="menu-button"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation"
+          aria-expanded={menuOpen}
+          aria-controls="main-navigation"
+          type="button"
+        >
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
     </header>
   );
 }
 
-function Eyebrow({ children }) {
-  return <div className="eyebrow"><span className="eyebrow-dot" />{children}</div>;
-}
-
-function SectionTitle({ number, label, title }) {
-  return (
-    <div className="section-heading">
-      <Eyebrow>{number} / {label}</Eyebrow>
-      <div className="heading-line"><h2>{title}</h2><span /></div>
-    </div>
-  );
-}
 
 function Hero() {
+  const floatingTechs = [
+    technologies.find((tech) => tech.name === "AWS"),
+    technologies.find((tech) => tech.name === "Linux"),
+    technologies.find((tech) => tech.name === "Python"),
+    technologies.find((tech) => tech.name === "Docker"),
+    technologies.find((tech) => tech.name === "Kubernetes"),
+    technologies.find((tech) => tech.name === "Terraform"),
+  ].filter(Boolean);
+
   return (
     <section className="hero section-wrap" id="home">
       <div className="hero-copy">
-        <Eyebrow>HELLO, WORLD! I'M</Eyebrow>
-        <h1>Danish<br /><span>John G S.</span></h1>
-        <p className="hero-role">Aspiring Cloud Security Engineer</p>
-<p className="hero-description">
-  Exploring the intersection of cloud infrastructure, DevOps, and cybersecurity.
-  Learning by building, troubleshooting, and creating practical solutions.
-</p>
+        <Eyebrow>WELCOME TO MY DIGITAL SPACE</Eyebrow>
+
+        <span className="hero-intro">HELLO, I'M DANISH JOHN</span>
+
+        <h1>
+          Building
+          <span> Secure </span>
+          <br />
+          Digital
+          <span> Futures.</span>
+        </h1>
+
+        <h2 className="hero-role">
+          Aspiring Cloud Security Engineer
+        </h2>
+
+        <p className="hero-description">
+          Cybersecurity enthusiast exploring cloud infrastructure,
+          automation and DevSecOps. I learn by building, experimenting,
+          troubleshooting and creating practical solutions.
+        </p>
+
         <div className="hero-buttons">
-          <a className="button-primary" href="#projects">Explore my work <ArrowDown size={14} /></a>
-          <a className="button-secondary" href="#contact">Get in touch <ArrowUpRight size={14} /></a>
+          <a className="button-primary" href="#projects">
+            EXPLORE MY WORK <ArrowRight size={17} />
+          </a>
+
+          <a className="button-secondary" href={profile.resume} download>
+            DOWNLOAD RESUME <ArrowDown size={17} />
+          </a>
         </div>
-        <div className="social-links">
-          <a href={profile.github} target="_blank" rel="noreferrer"><Github size={13} /> GitHub <ArrowUpRight size={10} /></a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer"><Linkedin size={13} /> LinkedIn <ArrowUpRight size={10} /></a>
-          <a href={`mailto:${profile.email}`}><Mail size={13} /> Email <ArrowUpRight size={10} /></a>
+
+        <div className="hero-socials">
+          <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+            <Github />
+          </a>
+          <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <Linkedin />
+          </a>
+          <a href={`mailto:${profile.email}`} aria-label="Email">
+            <Mail />
+          </a>
+        </div>
+
+        <div className="hero-specialties">
+          <span>CYBERSECURITY</span>
+          <span>CLOUD</span>
+          <span>DEVOPS</span>
+          <span>AUTOMATION</span>
         </div>
       </div>
 
       <div className="hero-visual">
-        <div className="orbit orbit-one" />
-        <div className="orbit orbit-two" />
-        <div className="float-tag tag-top">CLOUD SECURITY <span>↗</span></div>
-        <div className="profile-card">
-          <div className="card-topline"><span>PROFILE / 001</span><span>ONLINE <i /></span></div>
-          <div className="profile-identity">
-            <div className="avatar">DJ<span>.</span></div>
-            <div><small>IDENTITY VERIFIED</small><h3>Danish John</h3><p>Cloud Security / DevOps</p></div>
-          </div>
-          <div className="card-divider" />
-          <div className="profile-detail"><span>LOCATION</span><strong><MapPin size={11} /> India</strong></div>
-          <div className="profile-detail"><span>FOCUS</span><strong><Cloud size={11} /> Cloud & Security</strong></div>
-          <div className="profile-detail"><span>STATUS</span><strong className="green-text">● Learning & building</strong></div>
-          <div className="terminal-box">
-            <div><span>~</span> /danish</div>
-            <p><b>$</b> whoami</p>
-            <p className="terminal-output">aspiring-cloud-security-engineer<span className="cursor">_</span></p>
+        <div className="hero-image-frame">
+          <img
+            src={profile.photo}
+            alt="Portrait of Danish John"
+            className="hero-profile-image"
+          />
+          <div className="image-overlay" />
+          <div className="image-caption">
+            <span>DJ / 001</span>
+            <span>BUILDING WITH PURPOSE</span>
           </div>
         </div>
-        <div className="float-tag tag-bottom"><Terminal size={11} /> LINUX & BASH</div>
-        <div className="visual-caption"><span>FIG. 01 / 03</span><span>BUILDING WITH PURPOSE</span></div>
+
+        {floatingTechs.map((tech, index) => (
+          <div
+            className={`floating-tech-icon floating-tech-${index + 1}`}
+            key={tech.name}
+            title={tech.name}
+            aria-label={tech.name}
+          >
+            <TechLogo {...tech} />
+            <span>{tech.name}</span>
+          </div>
+        ))}
+
+        <div className="hero-floating-card hero-card-top">
+          <Cloud size={22} />
+          <div>
+            <strong>CLOUD SECURITY</strong>
+            <small>Learning & building</small>
+          </div>
+        </div>
+
+        <div className="hero-floating-card hero-card-bottom">
+          <Terminal size={22} />
+          <div>
+            <strong>LINUX & DEVOPS</strong>
+            <small>Hands-on practice</small>
+          </div>
+        </div>
+
+        <div className="hero-decoration hero-decoration-one" />
+        <div className="hero-decoration hero-decoration-two" />
       </div>
-      <div className="scroll-cue">SCROLL TO EXPLORE <ArrowDown size={12} /></div>
-      <div className="hero-bottom-line">
-        <span>LINUX</span><span>NETWORKING</span><span>SECURITY</span><span>CLOUD</span><span>DEVOPS</span><span>AUTOMATION</span>
+
+      <div className="hero-scroll">
+        <span>SCROLL TO EXPLORE</span>
+        <ArrowDown size={16} />
       </div>
     </section>
   );
 }
 
+
 function About() {
   return (
     <section className="section-wrap section-block" id="about">
-      <SectionTitle number="01" label="CONTEXT" title="A little about me." />
+      <SectionTitle
+        number="01"
+        label="ABOUT ME"
+        title="Curiosity. Creativity. Continuous growth."
+        description="A little introduction to who I am and what I am working towards."
+      />
+
       <div className="about-layout">
-        <div className="about-copy">
-          <h3>Curiosity is my starting point. <span>I learn by getting close to the system</span> — understanding how it works, where it breaks, and how to make it more resilient.</h3>
-          <p>I'm Danish John G S, a technology enthusiast focused on building a career in cloud security and DevOps engineering. My journey began with an interest in cybersecurity and understanding how systems work.</p>
-          <p>I believe in learning through hands-on practice: building projects, troubleshooting problems, documenting what I learn, and improving one step at a time.</p>
+        <div className="about-photo-card">
+          <img src={profile.photo} alt="Danish John" loading="lazy" />
+          <div className="about-photo-caption">
+            <span>DJ.</span>
+            <small>TECH ENTHUSIAST</small>
+          </div>
         </div>
-        <div className="about-cards">
-          <div className="about-card"><small>01 / EDUCATION</small><GraduationCap /><h4>Bachelor of<br />Computer Applications</h4><p>St. Benedict Academy, Bengaluru</p></div>
-          <div className="about-card"><small>02 / CAREER FOCUS</small><Cloud /><h4>Cloud Security<br /><span>& DevSecOps</span></h4><p>Building secure, reliable infrastructure</p></div>
-          <div className="about-card about-card-accent"><small>03 / APPROACH</small><h4>Learn.<br />Build. Break.<br />Fix.</h4><ArrowUpRight /></div>
+
+        <div className="about-content">
+          <h3>
+            Passionate about <span>Cybersecurity & Cloud Technology.</span>
+          </h3>
+
+          <p>
+            I'm Danish John G S, a BCA student with a strong interest in
+            cybersecurity, cloud infrastructure and secure software
+            development.
+          </p>
+
+          <p>
+            My journey started with ethical hacking and understanding how
+            systems work. I'm now strengthening my engineering foundations
+            through Linux, networking, Python and practical projects.
+          </p>
+
+          <p>
+            My long-term direction is to build secure, reliable and
+            automated cloud environments as a Cloud Security and DevSecOps
+            Engineer.
+          </p>
+
+          <div className="about-facts">
+            <div>
+              <GraduationCap />
+              <span>
+                <small>EDUCATION</small>
+                BCA — St. Benedict Academy
+              </span>
+            </div>
+            <div>
+              <MapPin />
+              <span>
+                <small>LOCATION</small>
+                Trivandrum, India
+              </span>
+            </div>
+            <div>
+              <ShieldCheck />
+              <span>
+                <small>CERTIFICATION</small>
+                CEH v13 — EC-Council
+              </span>
+            </div>
+            <div>
+              <Cloud />
+              <span>
+                <small>CAREER FOCUS</small>
+                Cloud Security & DevSecOps
+              </span>
+            </div>
+          </div>
+
+          <a className="text-link" href={profile.resume} download>
+            VIEW MY RESUME <ArrowUpRight size={16} />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Expertise() {
+  return (
+    <section className="section-wrap section-block" id="expertise">
+      <SectionTitle
+        number="02"
+        label="TECHNICAL EXPERTISE"
+        title="Skills under development."
+        description="A transparent look at the technical areas I'm actively learning and practising."
+      />
+
+      <div className="expertise-grid">
+        {expertise.map((skill, index) => (
+          <article className="expertise-card" key={skill.name}>
+            <div className="expertise-card-top">
+              <span>0{index + 1}</span>
+              <span className="expertise-status">{skill.level}</span>
+            </div>
+            <h3>{skill.name}</h3>
+            <p>{skill.description}</p>
+            <div
+              className="skill-progress"
+              role="progressbar"
+              aria-label={`${skill.name} learning progress`}
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow={skill.value}
+            >
+              <span style={{ width: `${skill.value}%` }} />
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <p className="expertise-note">
+        Progress indicators represent my self-assessed learning focus, not
+        formal proficiency scores.
+      </p>
+    </section>
+  );
+}
+
+function Technology() {
+  return (
+    <section className="section-wrap section-block" id="technology">
+      <SectionTitle
+        number="03"
+        label="TECHNOLOGY STACK"
+        title="Tools in my learning environment."
+        description="Technologies I use, practise or am currently exploring."
+      />
+
+      <div className="technology-grid">
+        {technologies.map((tech) => (
+          <article className="technology-card" key={tech.name}>
+            <div className="technology-card-top">
+              <span>TECH / STACK</span>
+              <ArrowUpRight size={14} />
+            </div>
+            <div className="technology-logo">
+              <TechLogo {...tech} />
+            </div>
+            <h3>{tech.name}</h3>
+            <p>{tech.category}</p>
+          </article>
+        ))}
+      </div>
+
+      <div className="technology-footer">
+        <div>
+          <Network />
+          <span>
+            <strong>Networking & Infrastructure</strong>
+            <small>Core engineering foundations</small>
+          </span>
+        </div>
+        <div className="technology-tags">
+          <span>TCP/IP</span>
+          <span>DNS</span>
+          <span>HTTP/HTTPS</span>
+          <span>SSH</span>
+          <span>Firewalls</span>
+          <span>Subnetting</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Architecture() {
+  return (
+    <section className="section-wrap section-block architecture-section">
+      <SectionTitle
+        number="04"
+        label="INFRASTRUCTURE ARCHITECTURE"
+        title="Understanding how systems connect."
+        description="A conceptual view of the infrastructure layers I'm learning to build and secure."
+      />
+
+      <div className="architecture-panel">
+        <div className="architecture-label">
+          <span>CONCEPTUAL INFRASTRUCTURE FLOW</span>
+          <span>01 — 06</span>
+        </div>
+
+        <div className="architecture-flow">
+          {architecture.map(({ name, detail, icon: Icon }, index) => (
+            <div className="architecture-step" key={name}>
+              <div className="architecture-node">
+                <Icon />
+              </div>
+              <strong>{name}</strong>
+              <small>{detail}</small>
+              {index !== architecture.length - 1 && (
+                <ArrowRight className="architecture-arrow" />
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="architecture-footer">
+          <span>IDENTITY</span>
+          <span>CONNECTIVITY</span>
+          <span>COMPUTE</span>
+          <span>PROTECTION</span>
+          <span>DATA</span>
+          <span>OBSERVABILITY</span>
         </div>
       </div>
     </section>
@@ -201,13 +692,29 @@ function About() {
 function Journey() {
   return (
     <section className="section-wrap section-block" id="journey">
-      <SectionTitle number="02" label="THE PATH SO FAR" title="A practice of progress." />
+      <SectionTitle
+        number="05"
+        label="PROFESSIONAL JOURNEY"
+        title="The path so far."
+        description="My education, certifications and hands-on learning journey."
+      />
+
       <div className="journey-list">
-        {journey.map((item) => (
-          <article className="journey-row" key={item.number}>
-            <span className="journey-number">{item.number}</span>
-            <div className="journey-content"><small>{item.label}</small><h3>{item.title}</h3><p>{item.description}</p></div>
-            <span className="journey-mark">↗ / {item.number}</span>
+        {journey.map((item, index) => (
+          <article className="journey-card" key={item.title}>
+            <div className="journey-marker">{index + 1}</div>
+            <div className="journey-card-content">
+              <span className="journey-date">{item.date}</span>
+              <h3>{item.title}</h3>
+              <h4>{item.organization}</h4>
+              <p>{item.description}</p>
+              <div className="journey-tags">
+                {item.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
+            </div>
+            <ArrowUpRight className="journey-external" />
           </article>
         ))}
       </div>
@@ -215,23 +722,44 @@ function Journey() {
   );
 }
 
-function Skills() {
+function DevOpsWorkflow() {
   return (
-    <section className="section-wrap section-block" id="skills">
-      <SectionTitle number="03" label="CURRENT TOOLKIT" title="Tools I'm working with." />
-      <div className="skills-intro"><p>Foundations first. Depth over decoration. These are active learning areas, not claims of mastery.</p><span>↗ UPDATED CONTINUOUSLY</span></div>
-      <div className="skills-list">
-        {skills.map(({ name, description, status, icon: Icon }, index) => (
-          <div className="skill-row" key={name}>
-            <span className="skill-index">0{index + 1}</span>
-            <Icon className="skill-icon" size={17} />
-            <div className="skill-info"><h3>{name}</h3><p>{description}</p></div>
-            <span className={`skill-status ${status === "Learning" ? "learning" : "practising"}`}><i />{status}</span>
-            <ArrowUpRight className="skill-arrow" size={14} />
-          </div>
-        ))}
+    <section className="section-wrap section-block workflow-section">
+      <SectionTitle
+        number="06"
+        label="DEVOPS WORKFLOW"
+        title="From code to deployment."
+        description="A simplified CI/CD workflow representing the engineering practices I'm exploring."
+      />
+
+      <div className="workflow-panel">
+        <div className="workflow-topline">
+          <span>CONTINUOUS INTEGRATION / CONTINUOUS DELIVERY</span>
+          <span className="workflow-indicator">LEARNING MODEL</span>
+        </div>
+
+        <div className="workflow-steps">
+          {workflow.map(({ name, icon: Icon }, index) => (
+            <div className="workflow-step" key={name}>
+              <div className="workflow-icon">
+                <Icon />
+              </div>
+              <strong>{name}</strong>
+              {index !== workflow.length - 1 && (
+                <ArrowRight className="workflow-arrow" />
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="workflow-track">
+          <span />
+        </div>
+
+        <p>
+          PLAN → DEVELOP → AUTOMATE → TEST → SECURE → DEPLOY
+        </p>
       </div>
-      <p className="skills-note">Currently prioritising Linux, Bash, and networking before expanding into cloud infrastructure and automation.</p>
     </section>
   );
 }
@@ -239,23 +767,80 @@ function Skills() {
 function Projects() {
   return (
     <section className="section-wrap section-block" id="projects">
-      <SectionTitle number="04" label="SELECTED WORK" title="Things I've built." />
-      <div className="projects-list">
+      <SectionTitle
+        number="07"
+        label="FEATURED PROJECTS"
+        title="Learning through building."
+        description="Practical work, experiments and documentation from my engineering journey."
+      />
+
+      <div className="projects-grid">
         {projects.map((project) => (
           <article className="project-card" key={project.number}>
-            <div className="project-main">
-              <div className="project-meta"><span>{project.number}</span><small>{project.category}</small><b>● {project.status}</b></div>
-              <h3>{project.name}</h3>
-              <p>{project.description}</p>
-              <div className="tech-list">{project.tech.map((tech) => <span key={tech}>{tech}</span>)}</div>
-              {project.url ? <a className="project-link" href={project.url} target="_blank" rel="noreferrer">View repository <ArrowUpRight size={13} /></a> : <span className="project-unavailable">Repository unavailable</span>}
+            <div className="project-preview">
+              <div className="project-preview-top">
+                <span>PROJECT / {project.number}</span>
+                <span>{project.status}</span>
+              </div>
+              <div className="project-preview-logo">
+                {project.icon === "code" ? (
+                  <Code2 />
+                ) : (
+                  <TechLogo
+                    icon={project.icon}
+                    color={project.color}
+                    name={project.name}
+                  />
+                )}
+              </div>
+              <span className="project-preview-category">{project.category}</span>
             </div>
-            <div className="project-number">{project.number}</div>
+
+            <div className="project-content">
+              <div className="project-title-row">
+                <span>{project.number}</span>
+                <h3>{project.name}</h3>
+              </div>
+
+              <p>{project.description}</p>
+
+              <div className="project-tech">
+                {project.tech.map((tech) => (
+                  <span key={tech}>{tech}</span>
+                ))}
+              </div>
+
+              {project.url ? (
+                <a
+                  className="project-link"
+                  href={project.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  VIEW PROJECT <ExternalLink size={15} />
+                </a>
+              ) : (
+                <span className="project-unavailable">
+                  PROJECT DETAILS TO BE UPDATED
+                </span>
+              )}
+            </div>
           </article>
         ))}
       </div>
-      <a className="github-banner" href={profile.github} target="_blank" rel="noreferrer">
-        <Github size={20} /><div><strong>Follow what I'm building.</strong><small>More notes, experiments, and projects on GitHub.</small></div><span>Explore GitHub profile <ArrowUpRight size={13} /></span>
+
+      <a
+        className="github-banner"
+        href={profile.github}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Github />
+        <span>
+          <strong>Explore more on GitHub</strong>
+          <small>Follow my projects and engineering progress.</small>
+        </span>
+        <ArrowUpRight />
       </a>
     </section>
   );
@@ -263,25 +848,100 @@ function Projects() {
 
 function Certification() {
   return (
-    <section className="certification-band">
-      <div className="section-wrap certification-layout">
-        <div><Eyebrow>05 / CREDENTIAL</Eyebrow><h2>Learning<br />backed by<br />credentials.</h2><p>One credential in my stack — a marker of the work and curiosity behind the practice.</p></div>
-        <div className="cert-card"><div className="cert-icon"><Award size={22} /></div><div><small>CERTIFICATION / 001</small><h3>Certified Ethical Hacker</h3><p>CEH v13 / EC-Council</p></div><ShieldCheck className="cert-shield" /></div>
-      </div>
+    <section className="section-wrap section-block certification-section">
+      <SectionTitle
+        number="08"
+        label="CERTIFICATION"
+        title="Knowledge backed by practice."
+        description="A milestone in my cybersecurity learning journey."
+      />
+
+      <article className="certification-card">
+        <div className="certification-icon">
+          <Award />
+        </div>
+        <div className="certification-content">
+          <span>EC-COUNCIL</span>
+          <h3>Certified Ethical Hacker</h3>
+          <p>CEH v13</p>
+        </div>
+        <ShieldCheck className="certification-shield" />
+      </article>
     </section>
   );
 }
 
 function Contact() {
   return (
-    <section className="section-wrap section-block contact-section" id="contact">
-      <SectionTitle number="06" label="CONNECT" title="Let's connect." />
-      <div className="contact-layout">
-        <div><p>Have an opportunity, a technical discussion, or just want to connect? My inbox is open.</p><a className="button-primary" href={`mailto:${profile.email}`}>Send me an email <Mail size={13} /></a></div>
-        <div className="contact-links">
-          <a href={`mailto:${profile.email}`}><Mail size={16} /><span><small>EMAIL</small>{profile.email}</span><ArrowUpRight size={14} /></a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer"><Linkedin size={16} /><span><small>LINKEDIN</small>linkedin.com/in/danishjohngs</span><ArrowUpRight size={14} /></a>
-          <a href={profile.github} target="_blank" rel="noreferrer"><Github size={16} /><span><small>GITHUB</small>github.com/danishjohngs</span><ArrowUpRight size={14} /></a>
+    <section className="contact-section" id="contact">
+      <div className="section-wrap contact-inner">
+        <Eyebrow>LET'S CONNECT</Eyebrow>
+
+        <h2>
+          Let's build something
+          <span> meaningful together.</span>
+        </h2>
+
+        <p>
+          Have an opportunity, a technical discussion or a project idea?
+          I'd be happy to connect.
+        </p>
+
+        <a className="button-primary" href={`mailto:${profile.email}`}>
+          GET IN TOUCH <ArrowUpRight size={17} />
+        </a>
+
+        <div className="contact-grid">
+          <a href={`mailto:${profile.email}`} className="contact-card">
+            <Mail />
+            <span>
+              <small>EMAIL</small>
+              {profile.email}
+            </span>
+            <ArrowUpRight />
+          </a>
+
+          <a
+            href={`https://wa.me/${profile.phone}`}
+            target="_blank"
+            rel="noreferrer"
+            className="contact-card"
+          >
+            <Phone />
+            <span>
+              <small>WHATSAPP</small>
+              +91 79074 01614
+            </span>
+            <ArrowUpRight />
+          </a>
+
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="contact-card"
+          >
+            <Linkedin />
+            <span>
+              <small>LINKEDIN</small>
+              Connect professionally
+            </span>
+            <ArrowUpRight />
+          </a>
+
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+            className="contact-card"
+          >
+            <Github />
+            <span>
+              <small>GITHUB</small>
+              Explore my repositories
+            </span>
+            <ArrowUpRight />
+          </a>
         </div>
       </div>
     </section>
@@ -289,42 +949,104 @@ function Contact() {
 }
 
 function Footer() {
-  return <footer className="site-footer"><div className="section-wrap footer-inner"><a href="#home"><DJMark /></a><p>Designed & built by Danish John.<br /><span>Learning. Building. Improving.</span></p><small>LINUX · SECURITY · CLOUD · DEVOPS</small><a href="#home">BACK TO TOP ↑</a></div></footer>;
+  return (
+    <footer className="site-footer">
+      <div className="section-wrap footer-inner">
+        <a href="#home" className="footer-brand">
+          DJ<span>.</span>
+        </a>
+
+        <p>
+          Designed & built by Danish John.
+          <br />
+          <span>Learning. Building. Improving.</span>
+        </p>
+
+        <div className="footer-socials">
+          <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+            <Github />
+          </a>
+          <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <Linkedin />
+          </a>
+          <a href={`mailto:${profile.email}`} aria-label="Email">
+            <Mail />
+          </a>
+        </div>
+
+        <a href="#home" className="back-to-top">
+          BACK TO TOP ↑
+        </a>
+
+        <small className="copyright">
+          © {new Date().getFullYear()} DANISH JOHN. ALL RIGHTS RESERVED.
+        </small>
+      </div>
+    </footer>
+  );
 }
 
 export default function App() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("portfolio-theme") || "dark";
+  });
+
+  const toggleTheme = () => {
+    setTheme((currentTheme) =>
+      currentTheme === "dark" ? "light" : "dark"
+    );
+  };
 
   useEffect(() => {
-    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("portfolio-theme", theme);
   }, [theme]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
+    const elements = document.querySelectorAll(
+      ".section-block, .contact-inner, .hero-copy, .hero-visual"
+    );
 
-    document.querySelectorAll(".section-block, .certification-layout, .hero-copy, .hero-visual").forEach((el) => observer.observe(el));
+    if (!("IntersectionObserver" in window)) {
+      elements.forEach((element) =>
+        element.classList.add("is-visible")
+      );
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="portfolio-app">
-      <Header theme={theme} setTheme={setTheme} />
+    <div className="portfolio-app" data-theme={theme}>
+      <Header theme={theme} onToggleTheme={toggleTheme} />
+
       <main>
         <Hero />
         <About />
+        <Expertise />
+        <Technology />
+        <Architecture />
         <Journey />
-        <Skills />
+        <DevOpsWorkflow />
         <Projects />
         <Certification />
         <Contact />
       </main>
+
       <Footer />
     </div>
   );

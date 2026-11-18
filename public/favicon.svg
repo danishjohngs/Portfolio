@@ -1,10 +1,10 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#111a19"/>
+  <rect width="64" height="64" rx="14" fill="#100B1D"/>
   <text x="10" y="43"
         font-family="Arial, sans-serif"
         font-size="29"
         font-weight="bold"
-        fill="#80e8a1">DJ</text>
-  <circle cx="53" cy="43" r="3" fill="#80e8a1"/>
+        fill="#C084FC">DJ</text>
+  <circle cx="53" cy="43" r="3" fill="#C084FC"/>
 </svg>
