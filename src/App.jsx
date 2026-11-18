@@ -372,23 +372,30 @@ function Hero() {
 
         <span className="hero-intro">HELLO, I'M DANISH JOHN</span>
 
-        <h1>
-          Building
-          <span> Secure </span>
-          <br />
-          Digital
-          <span> Futures.</span>
-        </h1>
+        
+<h1>
+  Danish John
+  <span> G S.</span>
+  <br />
+  Building
+  <span> Secure </span>
+  Digital
+  <span> Futures.</span>
+</h1>
+
 
         <h2 className="hero-role">
           Aspiring Cloud Security Engineer
         </h2>
 
-        <p className="hero-description">
-          Cybersecurity enthusiast exploring cloud infrastructure,
-          automation and DevSecOps. I learn by building, experimenting,
-          troubleshooting and creating practical solutions.
-        </p>
+        
+<p className="hero-description">
+  I'm Danish John G S, a CEH v13 certified cybersecurity
+  professional focused on Cloud Security, AWS, Linux,
+  Python automation and DevSecOps. I learn by building,
+  experimenting, troubleshooting and creating practical solutions.
+</p>
+
 
         <div className="hero-buttons">
           <a className="button-primary" href="#projects">
